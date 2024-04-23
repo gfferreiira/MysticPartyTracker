@@ -25,6 +25,7 @@ namespace MysticPartyTracker.Model
             //Retorna o valor da rolagem do dado.
             return new Random().Next(1, Side + 1);
         }
+    
 
     }
 }

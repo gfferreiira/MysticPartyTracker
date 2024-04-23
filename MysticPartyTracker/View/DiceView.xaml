@@ -11,7 +11,15 @@
                  FontSize="Large"                   
                  x:Name="DiceResult"/>
 
-                        <Picker
+                        <Label Text="0"
+                FontSize="Large"                   
+                x:Name="DiceTwoResult"/>
+
+                        <Label Text="0"
+                FontSize="Large"                   
+                x:Name="DiceThreeResult"/>
+
+        <Picker
                 x:Name="DicesPicker"
                  Title="Quantidade de dados"
                 SelectedIndexChanged="DicePicker_SelectedIndexChanged">
