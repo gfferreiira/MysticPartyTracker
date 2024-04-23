@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MysticPartyTracker.View.DiceView"
+             Title="DiceView">
+    <VerticalStackLayout
+        
+                   Padding="30,0"
+                    Spacing="25">
+                    <Label Text="0"
+                 FontSize="Large"                   
+                 x:Name="DiceResult"/>
+
+                        <Picker
+                x:Name="DicesPicker"
+                 Title="Quantidade de dados"
+                SelectedIndexChanged="DicePicker_SelectedIndexChanged">
+                            <Picker.Items>
+                <x:String>1</x:String>
+                <x:String>2</x:String>
+                <x:String>3</x:String>
+                                
+                            </Picker.Items>
+                        </Picker>
+
+        <Image
+                  x:Name="DiceTypeImage"
+                  Source="d6.svg"
+                  HeightRequest="185"
+                  Aspect="AspectFit"
+                  SemanticProperties.Description="Dice Icon" />
+
+
+                <Picker
+                         x:Name="SidesPicker"
+                    Title="Quantidade de lados"
+                         SelectedIndexChanged="DiceTypePicker_SelectedIndexChanged">
+                    <Picker.Items>
+                        <x:String>4</x:String>
+                        <x:String>6</x:String>
+                        <x:String>8</x:String>
+                        <x:String>10</x:String>
+                        <x:String>12</x:String>
+                        <x:String>20</x:String>
+                    </Picker.Items>
+                </Picker>
+             
+
+                    <Button
+                 x:Name="DiceBtn"
+                 Text="Rolar um dado" 
+              
+                 Clicked="DiceBtn_Clicked"
+                 HorizontalOptions="Fill" />
+
+
+            
+    </VerticalStackLayout>
+</ContentPage>
