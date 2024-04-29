@@ -11,13 +11,7 @@
                  FontSize="Large"                   
                  x:Name="DiceResult"/>
 
-                        <Label Text="0"
-                FontSize="Large"                   
-                x:Name="DiceTwoResult"/>
-
-                        <Label Text="0"
-                FontSize="Large"                   
-                x:Name="DiceThreeResult"/>
+                       
 
         <Picker
                 x:Name="DicesPicker"
