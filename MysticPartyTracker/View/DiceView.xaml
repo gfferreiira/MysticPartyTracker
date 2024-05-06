@@ -51,7 +51,7 @@
                     <Button
                  x:Name="DiceBtn"
                  Text="Rolar um dado" 
-              
+              Command="{Binding RollComand}"
                  Clicked="DiceBtn_Clicked"
                  HorizontalOptions="Fill" />
 
