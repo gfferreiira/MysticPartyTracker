@@ -7,23 +7,21 @@
         
                    Padding="30,0"
                     Spacing="25">
-                    <Label Text="0"
-                 FontSize="Large"                   
-                 x:Name="DiceResult"/>
+        
 
-                       
+
 
         <Picker
                 x:Name="DicesPicker" SelectedItem="{Binding Quantity}"
                  Title="Quantidade de dados">
-                            <Picker.ItemsSource>
+            <Picker.ItemsSource>
                 <x:Array Type="{x:Type x:Int32}">
                     <x:Int32>1</x:Int32>
                     <x:Int32>2</x:Int32>
                     <x:Int32>3</x:Int32>
                 </x:Array>
             </Picker.ItemsSource>
-                        </Picker>
+        </Picker>
 
         <Image
                   x:Name="DiceTypeImage"
@@ -33,29 +31,42 @@
                   SemanticProperties.Description="Dice Icon" />
 
 
-                <Picker SelectedItem="{Binding NumberSides}"
+        <Picker SelectedItem="{Binding NumberSides}"
                          x:Name="SidesPicker"
                     Title="Quantidade de lados"
                         >
-                    <Picker.ItemsSource>
+            <Picker.ItemsSource>
                 <x:Array Type="{x:Type x:Int32}">
                     <x:Int32>4</x:Int32>
-                        <x:Int32>6</x:Int32>
-                        <x:Int32>8</x:Int32>
-                        <x:Int32>10</x:Int32>
-                        <x:Int32>12</x:Int32>
-                        <x:Int32>20</x:Int32>
+                    <x:Int32>6</x:Int32>
+                    <x:Int32>8</x:Int32>
+                    <x:Int32>10</x:Int32>
+                    <x:Int32>12</x:Int32>
+                    <x:Int32>20</x:Int32>
                 </x:Array>
 
             </Picker.ItemsSource>
-                </Picker>
-             
+        </Picker>
 
-                    <Button
+
+        <Button
                  x:Name="DiceBtn"
                  Text="Rolar um dado" 
               Command="{Binding RollCommand}"
                  HorizontalOptions="Fill" />
+
+        <CollectionView ItemsSource="{Binding Rolls}">
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <VerticalStackLayout>
+                        <Label Text="{Binding}"/>
+                    </VerticalStackLayout>
+
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
 
         <Label
                     x:Name="resultString"
