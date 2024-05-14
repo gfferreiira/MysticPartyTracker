@@ -3,58 +3,91 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MysticPartyTracker.View.CharacterView"
              Title="CharacterView">
-    <VerticalStackLayout   Padding="30,0" Spacing="25">
-        
-        <HorizontalStackLayout>
-            <Label Text="Nivel" 
+    <ScrollView>
+        <VerticalStackLayout   Padding="30,0" Spacing="25">
+
+            <HorizontalStackLayout>
+                <Label Text="Nivel" 
                    FontSize="Small"
                    Padding="0,0,0,0"
             Margin="1000,0,0,0"/>
 
-            <Entry Margin="30,0,0,0" ClearButtonVisibility="WhileEditing" />
-        
-        </HorizontalStackLayout>
-        <Label 
-     Text="Nome do Personagem"
-      FontSize="Medium"  />
+                <Entry Margin="30,0,0,0" ClearButtonVisibility="WhileEditing"  Text="{Binding Level}"/>
 
-        <Entry Margin="0,0,400,0"  ClearButtonVisibility="WhileEditing"
-               FontSize="Medium"
+            </HorizontalStackLayout>
+            <Label 
+                 Text="Nome do Personagem"
+                  FontSize="Medium"  
+            
+                        />
+
+            <Entry Margin="0,0,400,0"  ClearButtonVisibility="WhileEditing"
+               FontSize="Medium" Text="{Binding Name}"
                
             />
 
-        <Picker Title="Classe do Personagem" Margin="0,0,400,0" FontSize="Medium">
-            <Picker.ItemsSource>
-                <x:Array Type="{x:Type x:String}">
-                    <x:String>Mago</x:String>
-                    <x:String>Clérigo</x:String>
-                    <x:String>Monge</x:String>
-                    <x:String>Guerreiro</x:String>
-                    <x:String>Ladrão</x:String>
-                    <x:String>Cavaleiro</x:String>
-                    <x:String>Bardo</x:String>
-                </x:Array>
-            </Picker.ItemsSource>
-        </Picker>
+            <Picker Title="Classe do Personagem" Margin="0,0,400,0" FontSize="Medium" SelectedItem="{Binding Class}"  x:Name="ClassPicker">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Mago</x:String>
+                        <x:String>Clérigo</x:String>
+                        <x:String>Monge</x:String>
+                        <x:String>Guerreiro</x:String>
+                        <x:String>Ladrão</x:String>
+                        <x:String>Cavaleiro</x:String>
+                        <x:String>Bardo</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
 
-        <Picker Title="Raça do Personagem" Margin="0,0,400,0" FontSize="Medium">
-            <Picker.ItemsSource>
-                <x:Array Type="{x:Type x:String}">
-                <x:String>Humano</x:String>
-                <x:String>Mestiço</x:String>
-                <x:String>Humanoide</x:String>
-                <x:String>Vastaya</x:String>
-                </x:Array>
+            <Picker Title="Raça do Personagem" Margin="0,0,400,0" FontSize="Medium" SelectedItem="{Binding Breed}"  x:Name="BreedPicker">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Humano</x:String>
+                        <x:String>Mestiço</x:String>
+                        <x:String>Humanoide</x:String>
+                        <x:String>Vastaya</x:String>
+                    </x:Array>
 
-            </Picker.ItemsSource>
-        </Picker>
+                </Picker.ItemsSource>
+            </Picker>
 
-        <Button
+            <Button
                 Text="Criar Personagem"
             HorizontalOptions="Center"
-                />
+            Command="{Binding CreateCharacter}"
+            x:Name="CharacterBtn"                />
+
+            <CollectionView ItemsSource="{Binding Characters}">
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+
+                        <Frame  BorderColor="Gray"
+                                CornerRadius="5"
+                                Padding="8">
+                                <VerticalStackLayout >
+                                <Label 
+                                     Text="{Binding Name}"/>
+                                    
+                                <Label 
+                                        Text="{Binding Class}"/>
+                                    
+                                <Label 
+                                        Text="{Binding  Breed}"/>
+                                    
+                                <Label 
+                                        Text="{Binding  Level}" />
+                                </VerticalStackLayout>
+                            </Frame>
+
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
 
 
 
-    </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
