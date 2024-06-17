@@ -18,5 +18,10 @@
     ContentTemplate="{DataTemplate local:CharacterView}"
     Route="Character" />
 
+        <ShellContent
+            Title="Spells"
+            ContentTemplate="{DataTemplate local:SpellsView}"
+            Route="Spells" />
+
     </TabBar>
 </Shell>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MysticPartyTracker.View.SpellsView"
+             Title="SpellsView">
+    <VerticalStackLayout>
+        <CollectionView ItemsSource="{Binding Spells}" EmptyView="Sem Dados">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <VerticalStackLayout>
+
+                        <HorizontalStackLayout>
+                            <Label
+                                Text="Feitiços" />
+
+                            <Label Text="{Binding Results}" />
+
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+
+
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Button Text="Buscar Magias"
+                Command="{Binding FindSpellsAsyncCommand}"
+                   x:Name="SpellsBtn" />
+    </VerticalStackLayout>
+</ContentPage>
