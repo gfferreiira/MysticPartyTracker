@@ -17,6 +17,8 @@ namespace MysticPartyTracker.ViewModel
         private readonly RestService _restService;
         public SpellsViewModel()
         {
+            FindSpells = new Command (async () => await
+            GetSpellsAsync());
             _restService = new RestService();
         }
 
@@ -27,7 +29,7 @@ namespace MysticPartyTracker.ViewModel
             get { return _spells; }
            set { _spells = value; }
         }
-        public ICommand FindSpellsAsyncCommand {  get; }
+        public ICommand FindSpells {  get; }
         public async Task<ObservableCollection<Spells>> GetSpellsAsync()
         {
             return await _restService.GetSpellsAsync();

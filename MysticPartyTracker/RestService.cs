@@ -19,9 +19,9 @@ namespace MysticPartyTracker
 
         public RestService()
         {
-            Spells = null;
+            
             _client = new HttpClient();
-            _serializerOptions = new JsonSerializerOptions()
+            _serializerOptions = new JsonSerializerOptions
             {
                 PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
                 WriteIndented = true

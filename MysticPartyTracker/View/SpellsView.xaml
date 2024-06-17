@@ -24,7 +24,7 @@
         </CollectionView>
 
         <Button Text="Buscar Magias"
-                Command="{Binding FindSpellsAsyncCommand}"
-                   x:Name="SpellsBtn" />
+                Command="{Binding FindSpellsCommand}"
+                    />
     </VerticalStackLayout>
 </ContentPage>
